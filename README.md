@@ -1,3 +1,14 @@
+Pre-requisites and Setup
+1. Visual Studio 2019+ Community
+a. Install ASP.NET and Web Development through the Visual Studio
+Installer
+2. .NET Core 3.1 (LTS) - included in Visual Studio 2019
+3. StyleCop - install through Visual Studio Marketplace
+4. Visual Studio Code
+5. NodeJS (comes with npm) v10 or higher
+6. Git for Windows
+7. SQL Server 2014+ Management Studio
+
 # FrontendSeed
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.26.
