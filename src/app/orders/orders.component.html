@@ -1,0 +1,80 @@
+<div class="orders container">
+    <h2>Search Orders</h2>
+    <form 
+      form novalidate="novalidate" 
+      #searchOrdersForm="ngForm" 
+      (submit)="getOrdersByEmail()">
+
+      <div class="container">
+        <div class="row ">
+          <div class="col-md-auto">
+            <div class="form-group">
+              <input 
+                class="form-control"
+                name="search"
+                #search="ngModel" 
+                [(ngModel)]="emailToSearch"
+                required 
+                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+              <div 
+                class="alert alert-danger" 
+                *ngIf="search.touched && !search.valid">
+                Email is required
+                <div 
+                  *ngIf="search.errors.pattern">
+                  Input is not a valid email
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-auto">
+            <div class="form-group">
+              <div class = search__Button>
+                <button class="btn btn-block btn-primary" [disabled]="searchOrdersForm.invalid || isSubmitting">
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-auto">
+            <div 
+              class="spinner-border text-dark" 
+              role="status"
+              *ngIf = "isSubmitting">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+    
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Sender</th>
+          <th>Email</th>
+          <th>Recipient Name</th>
+          <th>Recipient Email</th>
+          <th>Dedication</th>
+          <th>Voucher</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <ng-container *ngFor="let order of orders">
+          <tr>
+            <td>{{order.id}}</td>
+            <td>{{order.senderName}}</td>
+            <td>{{order.senderEmail}}</td>
+            <td>{{order.recipientName}}</td>
+            <td>{{order.recipientEmail}}</td>
+            <td>{{order.dedication}}</td>
+            <td>{{order.voucher}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>

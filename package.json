@@ -1,0 +1,44 @@
+{
+  "name": "ys-level-0",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start-local": "ng serve -c local -o",
+    "start-ux": "ng serve -c dev -o",
+    "build-dev": "ng build -c dev",
+    "build-staging": "ng build -c staging",
+    "build-prod": "ng build --prod -c prod",
+    "lint": "ng lint --fix=true"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^9.1.13",
+    "@angular/common": "~9.1.12",
+    "@angular/compiler": "~9.1.12",
+    "@angular/core": "^9.1.12",
+    "@angular/forms": "~9.1.12",
+    "@angular/localize": "^9.1.12",
+    "@angular/platform-browser": "~9.1.12",
+    "@angular/platform-browser-dynamic": "~9.1.12",
+    "@angular/router": "^9.1.12",
+    "@ng-bootstrap/ng-bootstrap": "^6.2.0",
+    "bootstrap": "^4.5.0",
+    "font-awesome": "^4.7.0",
+    "ngx-toastr": "^14.0.0",
+    "rxjs": "~6.6.3",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.901.12",
+    "@angular/cli": "~9.1.12",
+    "@angular/compiler-cli": "~9.1.12",
+    "@angular/language-service": "~9.1.12",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^5.1.2",
+    "tslint-immutable": "^4.5.4",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.15.0",
+    "typescript": "~3.8.3"
+  }
+}

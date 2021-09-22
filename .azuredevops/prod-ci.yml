@@ -1,0 +1,35 @@
+# Use this .yml template to create a CI/build for You_Source Angular 8 Project
+# Each `env-ci.yml` file will have different `trigger` and `build` commands
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build-prod --prod
+  displayName: 'Install Dependencies and Build'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: 'dist'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+  displayName: 'Archive Files'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  displayName: 'Publish Artifacts'

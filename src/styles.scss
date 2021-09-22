@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+// @import './assets/sass/reset.scss';
+
+// IMPORT BOOTSTRAP
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@import './assets/sass/base.scss';
+@import './assets/sass/buttons.scss';
+@import './assets/sass/components.scss';
+@import './assets/sass/typography.scss';
+@import './assets/sass/utilities.scss';
+@import './assets/sass/variables.scss';
+
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid red
+}
