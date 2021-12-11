@@ -1,120 +1,123 @@
 <div class="orders container">
-    <h2>Make Order</h2>
-    <form novalidate="novalidate" #orderForm="ngForm" (submit)="submit()">
-
-      <div class="form-group">
-        <label>Sender Name</label>
-        <input 
-          class="form-control" 
-          name="senderName" 
-          #senderName="ngModel" 
-          [(ngModel)]="model.senderName"
-          required/>
-        <div 
-          class="alert alert-danger" 
-          *ngIf="senderName.touched && !senderName.valid"> 
-          Name is required                                                                                                                                               
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Sender Email</label>
-        <input 
-          class="form-control" 
-          name="senderEmail" 
-          #senderEmail="ngModel" 
-          [(ngModel)]="model.senderEmail"
-          required 
-          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
-        <div 
-          class="alert alert-danger" 
-          *ngIf="senderEmail.touched && !senderEmail.valid">
-          Email is required
-          <div 
-            *ngIf="senderEmail.errors.pattern">
-            Input is not a valid email
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Recipient Name</label>
-        <input 
-          class="form-control" 
-          name="recipientName" 
-          #recipientName="ngModel" 
-          [(ngModel)]="model.recipientName"
-          required />
-          <div 
-            class="alert alert-danger" 
-            *ngIf="recipientName.touched && !recipientName.valid"> 
-            Name is required                                                                                                                                               
-          </div>                                                                                                                                                                                        
-      </div>
-
-      <div class="form-group">
-        <label>Recipient Email</label>
-        <input 
-          class="form-control" 
-          name="recipientEmail" 
-          #recipientEmail="ngModel" 
-          [(ngModel)]="model.recipientEmail"
-          required 
-          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
-        <div 
-          class="alert alert-danger" 
-          *ngIf="recipientEmail.touched && !recipientEmail.valid">
-          Email is required
-          <div 
-            *ngIf="recipientEmail.errors.pattern">
-            Input is not a valid email
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Dedication</label>
-        <textarea 
-            class="form-control" 
-            name="dedication" 
-            #dedication="ngModel" 
-            [(ngModel)]="model.dedication" >
-        </textarea>
-      </div>
-
-      <div class="form-group">
-        <label>Select Voucher</label>
-        <select 
-            class="form-control" 
-            name="voucher" 
-            [(ngModel)]="model.voucher">
-            <option [ngValue]="0" disabled selected >Available Vouchers</option>
-            <option [ngValue]="500">Php 500.00</option>
-            <option [ngValue]="1000">Php 1000.00</option>
-            <option [ngValue]="2000">Php 2000.00</option>
-        </select>  
-      </div>
-      
-      <div class="container">
-        <div class="row ">
-          <div class="col-md-auto">
-            <div class="form-group">
-              <div class = form__Button>
-                <button class="btn btn-block btn-primary" [disabled]="orderForm.invalid || isSubmitting">
-                  Submit
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-auto">
-            <div 
-              class="spinner-border text-dark" 
-              role="status"
-              *ngIf = "isSubmitting">
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </form>
+  <div class = "row">
+    <div class = "orders-logo"><img src="./assets/images/orders-logo.png" alt="Logo"></div>
+    <h3>Make Order</h3>
   </div>
+  <form novalidate="novalidate" #orderForm="ngForm" (submit)="submit()">
+
+    <div class="form-group">
+      <label>Sender Name</label>
+      <input 
+        class="form-control" 
+        name="senderName" 
+        #senderName="ngModel" 
+        [(ngModel)]="model.senderName"
+        required/>
+      <div 
+        class="alert alert-danger" 
+        *ngIf="senderName.touched && !senderName.valid"> 
+        Name is required                                                                                                                                               
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Sender Email</label>
+      <input 
+        class="form-control" 
+        name="senderEmail" 
+        #senderEmail="ngModel" 
+        [(ngModel)]="model.senderEmail"
+        required 
+        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+      <div 
+        class="alert alert-danger" 
+        *ngIf="senderEmail.touched && !senderEmail.valid">
+        Email is required
+        <div 
+          *ngIf="senderEmail.errors.pattern">
+          Input is not a valid email
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Recipient Name</label>
+      <input 
+        class="form-control" 
+        name="recipientName" 
+        #recipientName="ngModel" 
+        [(ngModel)]="model.recipientName"
+        required />
+        <div 
+          class="alert alert-danger" 
+          *ngIf="recipientName.touched && !recipientName.valid"> 
+          Name is required                                                                                                                                               
+        </div>                                                                                                                                                                                        
+    </div>
+
+    <div class="form-group">
+      <label>Recipient Email</label>
+      <input 
+        class="form-control" 
+        name="recipientEmail" 
+        #recipientEmail="ngModel" 
+        [(ngModel)]="model.recipientEmail"
+        required 
+        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+      <div 
+        class="alert alert-danger" 
+        *ngIf="recipientEmail.touched && !recipientEmail.valid">
+        Email is required
+        <div 
+          *ngIf="recipientEmail.errors.pattern">
+          Input is not a valid email
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Dedication</label>
+      <textarea 
+          class="form-control" 
+          name="dedication" 
+          #dedication="ngModel" 
+          [(ngModel)]="model.dedication" >
+      </textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Select Voucher</label>
+      <select 
+          class="form-control" 
+          name="voucher" 
+          [(ngModel)]="model.voucher">
+          <option [ngValue]="0" disabled selected >Available Vouchers</option>
+          <option [ngValue]="500">Php 500.00</option>
+          <option [ngValue]="1000">Php 1000.00</option>
+          <option [ngValue]="2000">Php 2000.00</option>
+      </select>  
+    </div>
+    
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-auto">
+          <div class="form-group">
+            <div class = form__Button>
+              <button class="btn btn-block btn-primary" [disabled]="orderForm.invalid || isSubmitting">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-auto">
+          <div 
+            class="spinner-border text-dark" 
+            role="status"
+            *ngIf = "isSubmitting">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </form>
+</div>
